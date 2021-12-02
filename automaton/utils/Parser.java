@@ -1,20 +1,31 @@
 package automaton.utils;
 
 import automaton.Automaton;
-import automaton.builder.AutomatonBuilder;
 import automaton.exceptions.AtmIllegalOperationException;
 import automaton.exceptions.AtmTooManyArgumentsException;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
+/**
+ * Parser class, allowing the reading and parsing of files as instances of Automaton.
+ */
 public class Parser {
     private static String transition = "([^->])*->([^->])*\\[( ?)label( ?)=( ?)\".+\".*]";
 
+    /**
+     * Reads a file and parses it using an AutomatonBuilder to create an instance of Automaton.
+     * @see AutomatonBuilder
+     * @see Automaton
+     * @param path path to a file to read and parse.
+     * @return an instance of Automaton, built with a file's content as parameters.
+     * @throws FileNotFoundException when a file cannot be found.
+     * @throws AtmTooManyArgumentsException when too many arguments are sent through an instance of AutomatonBuilder.
+     * @throws AtmIllegalOperationException when an illegal operation occurs while running a {@link Parser}.
+     */
     public static Automaton fromFile(String path) throws FileNotFoundException, AtmTooManyArgumentsException, AtmIllegalOperationException {
         AutomatonBuilder ab = new AutomatonBuilder();
 
