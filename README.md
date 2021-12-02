@@ -4,21 +4,25 @@ More features may be upcoming.
 
 Note that this API is completely open source and reusable.
 
-## Installing AutomatonAPI `v.1.0`
-
-#### JAR Library
+## Installing AutomatonAPI as JAR Library `v.1.0`
 [Download](https://github.com/Leeniiux/automaton/tree/main/jar) and install AutomatonAPI's jar file as a library on your project.
 
 ## How to use AutomatonAPI
 
-Parsing a file as an Automaton
+#### Summary
+- [Parsing a file](Parsing)
+- [Using an AutomatonBuilder](Using)
+- [Create a .dot file](Let's)
+- [Perform actions on an Automaton](perform)
+
+#### Parsing a file as an Automaton
 ```java
 public static void main(String[] args) {
   Automaton automaton = Parser.fromFile("yourfile.dot");
 }
 ```
 
-Using an AutomatonBuilder to create an Automaton, step by step
+#### Using an AutomatonBuilder to create an Automaton, step by step
 ```java
 public static void main(String[] args) {
   //Creating a builder and setting its name
@@ -41,7 +45,7 @@ public static void main(String[] args) {
 }
 ```
 
-Let's have an example of an Automaton as a .dot file *('yourfile.dot')*
+#### Let's have an example of an Automaton as a .dot file *('yourfile.dot')*
 ```dot
 digraph {
   #init s0
@@ -60,7 +64,7 @@ digraph {
 }
 ```
 
-How to perform actions on your Automaton
+#### How to perform actions on your Automaton
 ```java
 public static void main(String[] args) {
   Automaton automaton = Parser.fromFile("yourfile.dot");
