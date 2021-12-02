@@ -10,8 +10,8 @@ Note that this API is completely open source and reusable.
 ## How to use AutomatonAPI
 
 #### Summary
-- [Parsing a file](Parsing)
-- [Using an AutomatonBuilder](Using)
+- [Parsing a file](#parsing-a-file-as-an-automaton)
+- [Using an AutomatonBuilder](#using-an-automatonbuilder-to-create-an-automaton)
 - [Create a .dot file](Let's)
 - [Perform actions on an Automaton](perform)
 
@@ -22,7 +22,7 @@ public static void main(String[] args) {
 }
 ```
 
-#### Using an AutomatonBuilder to create an Automaton, step by step
+#### Using an AutomatonBuilder to create an Automaton
 ```java
 public static void main(String[] args) {
   //Creating a builder and setting its name
