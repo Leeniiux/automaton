@@ -12,8 +12,9 @@ Note that this API is completely open source and reusable.
 #### Summary
 - [Parsing a file](#parsing-a-file-as-an-automaton)
 - [Using an AutomatonBuilder](#using-an-automatonbuilder-to-create-an-automaton)
-- [Create a .dot file](#lets-have-an-example-of-an-automaton-as-a-dot-file-yourfiledot)
-- [Perform actions on an Automaton](#how-to-perform-actions-on-your-automaton)
+- [Creating a .dot file](#lets-have-an-example-of-an-automaton-as-a-dot-file-yourfiledot)
+- [Exporting as a file](#)
+- [Performing actions on an Automaton](#how-to-perform-actions-on-your-automaton)
 
 #### Parsing a file as an Automaton
 ```java
@@ -61,6 +62,20 @@ digraph {
   s0->s3[label="[;]"]
   s3->s4[ label = "[-]"]
       s4 -> sf    [ label= "[D)]"] #This is outragious, but still... It works !
+}
+```
+
+#### Exporting an Automaton as a file
+```java
+public static void main(String[] args) {
+  //Initialization of an automaton
+  Automaton automaton = Parser.fromFile("yourfile.dot");
+  
+  //Exporting without overriding an already existing file
+  automaton.export("pathtomyfile.dot");
+  
+  //Overriding an already existing file
+  automaton.export("pathtomyfile.dot", true);
 }
 ```
 
