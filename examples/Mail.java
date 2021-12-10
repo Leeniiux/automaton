@@ -18,7 +18,5 @@ public class Mail {
         System.out.println("\"clement.lavedrine@etu.univ-nantes.\" - ACCEPTED : " + automaton.accepts("clement.lavedrine@etu.univ-nantes."));
         System.out.println("\"clement.lavedrine@etu.univ-nantes\" - ACCEPTED : " + automaton.accepts("clement.lavedrine@etu.univ-nantes"));
         System.out.println("\"clement.lavedrine@etu.univ-\" - ACCEPTED : " + automaton.accepts("clement.lavedrine@etu.univ-"));
-
-        System.out.println(automaton.toString());
     }
 }
