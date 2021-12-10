@@ -13,7 +13,7 @@ Note that this API is completely open source and reusable.
 - [Parsing a file](#parsing-a-file-as-an-automaton)
 - [Using an AutomatonBuilder](#using-an-automatonbuilder-to-create-an-automaton)
 - [Creating a .dot file](#lets-have-an-example-of-an-automaton-as-a-dot-file-yourfiledot)
-- [Exporting as a file](#)
+- [Exporting as a file](#exporting-an-automaton-as-a-file)
 - [Performing actions on an Automaton](#how-to-perform-actions-on-your-automaton)
 
 #### Parsing a file as an Automaton
