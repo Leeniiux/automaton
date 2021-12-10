@@ -1,5 +1,8 @@
 package automaton;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -68,5 +71,40 @@ public class Automaton {
         transitions.forEach(t -> sb.append("\t").append(t).append("\n"));
 
         return sb.append("}").toString();
+    }
+
+    /**
+     * Exports an instance of {@link #Automaton} as a file.
+     * File extension should be specified in the path
+     * This method will not override an elready existing file !
+     * @param path path to the file to write in
+     * @return true if an {@link #Automaton} properly is exported. Returns false otherwise
+     */
+    public boolean export(String path) { return export(path, false); }
+
+    /**
+     * Exports an instance of {@link #Automaton} as a file.
+     * File extension should be specified in the path
+     * @param path path to the file to write in
+     * @param override whether this method should override an already existing file or not. Attention : No confirmation is needed
+     * @return true if an {@link #Automaton} properly is exported. Returns false otherwise
+     */
+    public boolean export(String path, boolean override) {
+        File file = new File(path);
+        if(file.exists()) {
+            if(override) {
+                if (!file.delete()) return false;
+            } else return false;
+        }
+
+        try {
+            if(file.createNewFile()) {
+                FileWriter fileWriter = new FileWriter(path);
+                fileWriter.write(toString());
+                fileWriter.close();
+                return true;
+            }
+        } catch(IOException ignore) { return false; }
+        return false;
     }
 }
