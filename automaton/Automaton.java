@@ -3,9 +3,8 @@ package automaton;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+
 import automaton.utils.AutomatonBuilder;
 import automaton.utils.Parser;
 
@@ -61,11 +60,23 @@ public class Automaton {
         for(State s : sf) sb.append(" ").append(s.getName());
         sb.append("\n\n");
 
-        List<String> temp = s0.getTransitions();
+        List<State> states = new ArrayList<>(Collections.singletonList(s0));
+        List<State> last = new ArrayList<>();
+        List<State> temp = new ArrayList<>();
+
+        while(states.size() != last.size()) {
+            last = new ArrayList<>(states);
+            for(State state : states) {
+                for(State value : state.getTransitions().values()) {
+                    if(!states.contains(value)) temp.add(value);
+                }
+            }
+            states.addAll(temp);
+            temp = new ArrayList<>();
+        }
+
         List<String> transitions = new ArrayList<>();
-        temp.forEach(t -> {
-            if(!transitions.contains(t)) transitions.add(t);
-        });
+        states.forEach(s -> transitions.addAll(s.getTransitionsList()));
         Collections.sort(transitions);
 
         transitions.forEach(t -> sb.append("\t").append(t).append("\n"));
@@ -76,7 +87,7 @@ public class Automaton {
     /**
      * Exports an instance of {@link #Automaton} as a file.
      * File extension should be specified in the path
-     * This method will not override an elready existing file !
+     * This method will not override an already existing file !
      * @param path path to the file to write in
      * @return true if an {@link #Automaton} properly is exported. Returns false otherwise
      */

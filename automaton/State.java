@@ -63,18 +63,23 @@ public class State {
     public String getName() { return name; }
 
     /**
-     * This method is a recursive method. It is used in Automaton.
-     * @see Automaton
-     *
-     * @return a list of String containing all transitions contained, as human readable strings.
+     * @return a map of all transitions.
      */
-    public List<String> getTransitions() {
-        List<String> temp = new ArrayList<>();
-        this.transitions.forEach((regex, destination) -> {
-            temp.add(this.getName() + " -> " + destination.getName() + " [label=\"" + regex + "\"]");
-            temp.addAll(destination.getTransitions());
+    public Map<Pattern, State> getTransitions() { return transitions; }
+
+    /**
+     * @return a list of transitions as string formats.
+     */
+    public List<String> getTransitionsList() {
+        List<String> transitions = new ArrayList<>();
+        this.transitions.forEach((regex, to) -> {
+            transitions.add(this.getName() + " -> " + to.getName() + " [label=\"" + regex + "\"]");
         });
-        return temp;
+        return transitions;
     }
 
+    @Override
+    public String toString() {
+        return this.getName();
+    }
 }

@@ -1,0 +1,32 @@
+digraph M {
+    #init P0
+    #end Z1
+
+    P0 -> P1[label="[a-zA-Z]"]
+
+    P1 -> P2[label="[a-zA-Z0-9]"]
+    P2 -> P2[label="[a-zA-Z0-9]"]
+
+    P1 -> P0[label="[-\\.]"]
+    P2 -> P0[label="[-\\.]"]
+
+    P2 -> P3[label="[+]"]
+    P2 -> P3[label="[+]"]
+
+    P3 -> P4[label="[a-zA-Z]"]
+    P4 -> P4[label="[a-zA-Z0-9]"]
+
+    P1 -> A0[label="[@]"]
+    P2 -> A0[label="[@]"]
+    P4 -> A0[label="[@]"]
+
+    A0 -> D0[label="[a-zA-Z]"]
+    D0 -> D0[label="[a-zA-Z0-9]"]
+
+    D0 -> A0[label="[-]"]
+    D0 -> Z0[label="[.]"]
+
+    Z0 -> Z1[label="[a-zA-Z]"]
+    Z1 -> Z1[label="[a-zA-Z0-9]"]
+    Z1 -> A0[label="[-]"]
+}

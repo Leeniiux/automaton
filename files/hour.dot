@@ -1,0 +1,14 @@
+digraph H {
+    #init H0
+    #end M2
+
+    H0 -> H1[label="[01]"]
+    H0 -> H2[label="[2]"]
+    H1 -> H3[label="[0-9]"]
+    H2 -> H3[label="[0-3]"]
+
+    H3 -> M0[label="[:]"]
+
+    M0 -> M1[label="[0-5]"]
+    M1 -> M2[label="[0-9]"]
+}
