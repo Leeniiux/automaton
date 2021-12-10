@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"automaton.exceptions","l":"AtmIllegalOperationException"},{"p":"automaton.exceptions","l":"AtmTooManyArgumentsException"},{"p":"automaton","l":"Automaton"},{"p":"automaton.utils","l":"AutomatonBuilder"},{"p":"automaton.utils","l":"Parser"},{"p":"automaton","l":"State"}];updateSearchResults();
